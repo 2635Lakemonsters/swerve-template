@@ -4,13 +4,17 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.ExampleTalonCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.ExampleTalonSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -20,12 +24,18 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-  // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
-
+  //joysticks
+  public static Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_CHANNEL);
+  public static Joystick leftJoystick = new Joystick(Constants.LEFT_JOYSTICK_CHANNEL);
+  
+  //Subsystems
+  private static ExampleTalonSubsystem m_exampleTalonSubsystem = new ExampleTalonSubsystem(0);
+  
+  //Commands
+  private static ExampleTalonCommand m_exampleTalonCommand = new ExampleTalonCommand(m_exampleTalonSubsystem);
+}
+  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings

@@ -10,12 +10,12 @@ import frc.robot.subsystems.ExampleTalonSubsystem;
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class ExampleTalonCommand extends Command {
   /** Creates a new ExampleTalonCommand. */
-  ExampleTalonSubsystem m_exampletalonSubsystem;
+  ExampleTalonSubsystem m_exampleTalonSubsystem;
   
-  private ExampleTalonCommand(ExampleTalonSubsystem exampletalonSubsystem) {
+  private ExampleTalonCommand(ExampleTalonSubsystem exampleTalonSubsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
-    m_exampletalonSubsystem = exampletalonSubsystem;
-    addRequirements(m_exampletalonSubsystem); 
+    m_exampleTalonSubsystem = exampleTalonSubsystem;
+    addRequirements(m_exampleTalonSubsystem); 
   }
 
   // Called when the command is initially scheduled.
@@ -25,13 +25,13 @@ public class ExampleTalonCommand extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_exampletalonSubsystem.TalonForward();
+    m_exampleTalonSubsystem.TalonForward();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_exampletalonSubsystem.TalonBackward();
+    m_exampleTalonSubsystem.TalonBackward();
   }
 
   // Returns true when the command should end.
